@@ -159,11 +159,14 @@ class CpuScheduler{
             }
                 currentProcess -> completionTime = currentTime;
                 currentProcess -> waitingTime = currentProcess -> completionTime - currentProcess -> burstTime - currentProcess -> arrivalTime;   
-                cout << "Running : ( " << currentProcess -> pid << " )from "<< StartTime << " -> " << currentTime <<endl;
-                cout << "Process : ( " << currentProcess -> pid << " )Entiarly finished at Time Sycle: " << currentProcess -> completionTime << endl;
-                cout << "Process : ( " << currentProcess -> pid << " )'s turnaround time is : " << currentProcess -> completionTime - currentProcess -> arrivalTime << endl;
-                cout << "Process : ( " << currentProcess -> pid << " )'s waiting time is : " << currentProcess -> waitingTime 
-                << " Time Sycles" << endl; 
+                cout << "\n==================================================\n";
+                cout << " [Round Robin] Process ( " << currentProcess->pid << " ) Completed!\n";
+                cout << "==================================================\n";
+                cout << "  Running Time    : " << StartTime << " -> " << currentTime << "\n";
+                cout << "  Completion Time : " << currentProcess->completionTime << "\n";
+                cout << "  Turnaround Time : " << currentProcess->completionTime - currentProcess->arrivalTime << "\n";
+                cout << "  Waiting Time    : " << currentProcess->waitingTime << " Time Cycles\n";
+                cout << "==================================================\n"; 
                 // delete finished node  
                 MajorQueue::ProcessNode* deletenode = currentProcess;
                 delete deletenode;
@@ -177,7 +180,7 @@ class CpuScheduler{
                 checkArrivedprocess(RR_StaticQueue,RR_ReadyQueue);
             }
             
-            cout << "Running : ( " << currentProcess -> pid << " )from "<< StartTime << " -> " << currentTime <<endl;
+            cout << " [Round Robin] Running Process ( " << currentProcess->pid << " ) from " << StartTime << " -> " << currentTime << endl;
             if (currentProcess -> remainingTime != 0){
                 RR_ReadyQueue -> enqueue(currentProcess->pid, currentProcess->arrivalTime, currentProcess->burstTime,currentProcess->remainingTime);
                 delete currentProcess; // delete the current process after enqueueing it
@@ -211,12 +214,14 @@ class CpuScheduler{
                     }
                     currentProcess -> completionTime = currentTime;
                     currentProcess -> waitingTime = currentProcess -> completionTime - currentProcess -> burstTime - currentProcess -> arrivalTime; 
-                    cout << currentProcess -> pid <<"With FCFS Scheduling : " << endl;  
-                    cout << "Running : ( " << currentProcess -> pid << " )from "<< StartTime << " -> " << currentTime <<endl;
-                    cout << "Process : ( " << currentProcess -> pid << " )Entiarly finished at Time Sycle: " << currentProcess -> completionTime << endl;
-                    cout << "Process : ( " << currentProcess -> pid << " )'s turnaround time is : " << currentProcess -> completionTime - currentProcess -> arrivalTime << endl;
-                    cout << "Process : ( " << currentProcess -> pid << " )'s waiting time is : " << currentProcess -> waitingTime 
-                    << " Time Sycles" << endl; 
+                    cout << "\n==================================================\n";
+                    cout << " [FCFS] Process ( " << currentProcess->pid << " ) Completed!\n";
+                    cout << "==================================================\n";
+                    cout << "  Running Time    : " << StartTime << " -> " << currentTime << "\n";
+                    cout << "  Completion Time : " << currentProcess->completionTime << "\n";
+                    cout << "  Turnaround Time : " << currentProcess->completionTime - currentProcess->arrivalTime << "\n";
+                    cout << "  Waiting Time    : " << currentProcess->waitingTime << " Time Cycles\n";
+                    cout << "==================================================\n"; 
                     // delete finished node  
                     MajorQueue::ProcessNode* deletenode = currentProcess;
                     delete deletenode;
@@ -240,11 +245,13 @@ class CpuScheduler{
         char catchPid;
         int catchBurst;
         int catchArrival;
-        cout<<"Type The Number Of Processes : ";
+        cout << "\n=== CPU Scheduler Simulator ===\n";
+        cout << "Type The Number Of Processes : ";
         int numberOfProcesses;
         cin >> numberOfProcesses;
         
         for (int i = 0 ; i < numberOfProcesses ; i++){
+        cout << "\n--- Process " << i + 1 << " ---\n";
         cout << "Enter The Name Of Process (Char) : ";
         cin >> catchPid;
         cout << "Type Burst Time : ";
