@@ -16,5 +16,3 @@ This simulator evaluates process management performance by calculating key execu
 ## 🛠️ Data Structures Implemented
 * **Queues (FIFO):** Used to manage ready queues and process execution state.
 * **Structs & Dynamic Memory:** Encapsulated process data and parameters.
-
-## ⚙️ How to Compile & Run
