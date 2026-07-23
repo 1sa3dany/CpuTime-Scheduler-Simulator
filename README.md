@@ -107,4 +107,5 @@ Type Arrival Time : 2
 ---
 
 ## 👤 Author
-* **Abdulrahman Saadany** - [LinkedIn Profile](https://www.linkedin.com/in/abdulrahman-ali-71439a369)
+* **Abdulrahman Ali** - [LinkedIn Profile](https://www.linkedin.com/in/abdulrahman-ali-71439a369)
+* **Abdulrahman Saadany** - [GitHub Profile](https://github.com/1sa3dany)
